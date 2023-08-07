@@ -14,7 +14,7 @@ const mysqlConfig = config.get<{
 export const AppDataSource = new DataSource({
 	...mysqlConfig,
 	type: 'mysql',
-	synchronize: true,
+	synchronize: false,
 	logging: false,
 	entities: ['src/entities/**/*.entity{.ts,.js}'],
 	migrations: ['src/migrations/**/*{.ts,.js}'],

@@ -20,7 +20,7 @@ Steps to run this project:
 
 # Install dev dependencies
 
--   npm i -D @faker-js/faker @types/bcryptjs @types/config @types/cookie-parser @types/cors @types/express @types/html-to-text @types/jsonwebtoken @types/morgan @types/nodemailer morgan ts-node ts-node-dev
+-   npm i -D @faker-js/faker @types/bcryptjs @types/config @types/cookie-parser @types/cors @types/express @types/html-to-text @types/jsonwebtoken @types/morgan @types/nodemailer morgan ts-node ts-node-dev @types/pug
 
 # Setup db connection with config and update scripts (package.json)
 
@@ -29,3 +29,7 @@ Steps to run this project:
 # Create migration
 
 -   typeorm entity:create src/entities/post.entity
+
+# Install redis then start it
+
+-   brew install redis | redis-server
