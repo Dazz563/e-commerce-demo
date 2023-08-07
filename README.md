@@ -28,4 +28,4 @@ Steps to run this project:
 
 # Create migration
 
--   typeorm entity:create src/entities/Post.entity
+-   typeorm entity:create src/entities/post.entity
