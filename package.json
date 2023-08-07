@@ -7,8 +7,13 @@
         "build": "tsc -p .",
         "typeorm": "typeorm-ts-node-commonjs",
         "migrate": "rm -rf dist && npm run build && npm run typeorm migration:generate ./src/migrations/initialMigration -- -d ./src/utils/data-source.ts -p",
+        "db:log": " npm run typeorm schema:log -- -d ./src/utils/data-source.ts",
+        "db:sync": " npm run typeorm schema:sync -- -d ./src/utils/data-source.ts",
         "db:push": "rm -rf dist && npm run build && npm run typeorm migration:run -- -d ./src/utils/data-source.ts",
-        "db:revert": "rm -rf dist && npm run build && npm run typeorm migration:revert -- -d ./src/utils/data-source.ts",
+        "db:revert": "npm run typeorm migration:revert -- -d ./src/utils/data-source.ts",
+        "db:drop": "npm run typeorm schema:drop -- -d ./src/utils/data-source.ts",
+        "db:show": "npm run typeorm migration:show -- -d ./src/utils/data-source.ts",
+        "db:cache:clear": "npm run typeorm cache:clear -- -d ./src/utils/data-source.ts",
         "importData": "npx ts-node-dev --transpile-only --exit-child  src/data/seeder.ts"
     },
     "dependencies": {

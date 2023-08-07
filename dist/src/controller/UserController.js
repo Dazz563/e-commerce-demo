@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const data_source_js_1 = require("../utils/data-source.js");
-const User_entity_js_1 = require("../entity/User.entity.js");
+const User_entity_js_1 = require("../entities/User.entity.js");
 class UserController {
     constructor() {
         this.userRepository = data_source_js_1.AppDataSource.getRepository(User_entity_js_1.User);

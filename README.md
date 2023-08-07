@@ -22,4 +22,10 @@ Steps to run this project:
 
 -   npm i -D @faker-js/faker @types/bcryptjs @types/config @types/cookie-parser @types/cors @types/express @types/html-to-text @types/jsonwebtoken @types/morgan @types/nodemailer morgan ts-node ts-node-dev
 
-# Setup db connection with config
+# Setup db connection with config and update scripts (package.json)
+
+## Migrations
+
+# Create migration
+
+-   typeorm entity:create src/entities/Post.entity
