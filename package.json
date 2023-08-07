@@ -6,8 +6,9 @@
         "start": "ts-node-dev --respawn --transpile-only --exit-child src/app.ts",
         "build": "tsc -p .",
         "typeorm": "typeorm-ts-node-commonjs",
-        "migrate": "rm -rf dist && npm build && npm typeorm migration:generate ./src/migrations/added-user-entity -d ./src/utils/data-source.ts -p",
-        "db:push": "rm -rf dist && npm build && npm typeorm migration:run -d src/utils/data-source.ts",
+        "migrate": "rm -rf dist && npm run build && npm run typeorm migration:generate ./src/migrations/initialMigration -- -d ./src/utils/data-source.ts -p",
+        "db:push": "rm -rf dist && npm run build && npm run typeorm migration:run -- -d ./src/utils/data-source.ts",
+        "db:revert": "rm -rf dist && npm run build && npm run typeorm migration:revert -- -d ./src/utils/data-source.ts",
         "importData": "npx ts-node-dev --transpile-only --exit-child  src/data/seeder.ts"
     },
     "dependencies": {
