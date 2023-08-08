@@ -1,7 +1,7 @@
 import {faker} from '@faker-js/faker';
-import {Post} from '../entities/post.entity';
-import {RoleEnumType, User} from '../entities/user.entity';
-import {AppDataSource} from '../utils/data-source';
+import {Post} from '../../entities/post.entity';
+import {RoleEnumType, User} from '../../entities/user.entity';
+import {AppDataSource} from '../../utils/data-source';
 
 const postRepository = AppDataSource.getRepository(Post);
 const userRepository = AppDataSource.getRepository(User);

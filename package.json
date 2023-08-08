@@ -14,7 +14,9 @@
         "db:drop": "npm run typeorm schema:drop -- -d ./src/utils/data-source.ts",
         "db:show": "npm run typeorm migration:show -- -d ./src/utils/data-source.ts",
         "db:cache:clear": "npm run typeorm cache:clear -- -d ./src/utils/data-source.ts",
-        "importData": "npx ts-node-dev --transpile-only --exit-child  src/data/seeder.ts"
+        "importData": "npx ts-node-dev --transpile-only --exit-child  src/data/seeder.ts",
+        "populate-db": "npx ts-node-dev --transpile-only --exit-child  src/data/data-import/populate-db.ts",
+        "delete-db": "npx ts-node-dev --transpile-only --exit-child  src/data/data-import/delete-db.ts"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",
