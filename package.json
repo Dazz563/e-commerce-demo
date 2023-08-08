@@ -16,6 +16,7 @@
         "db:cache:clear": "npm run typeorm cache:clear -- -d ./src/utils/data-source.ts",
         "importData": "npx ts-node-dev --transpile-only --exit-child  src/data/seeder.ts",
         "populate-db": "npx ts-node-dev --transpile-only --exit-child  src/data/data-import/populate-db.ts",
+        "populate-db-csv": "npx ts-node-dev --transpile-only --exit-child  src/data/csv-import/csv-data.ts",
         "delete-db": "npx ts-node-dev --transpile-only --exit-child  src/data/data-import/delete-db.ts"
     },
     "dependencies": {
@@ -23,6 +24,7 @@
         "config": "^3.3.9",
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
+        "csv-parser": "^3.0.0",
         "dotenv": "^16.3.1",
         "envalid": "^7.3.1",
         "express": "^4.17.2",
