@@ -22,6 +22,10 @@ Steps to run this project:
 
 -   npm i -D @faker-js/faker @types/bcryptjs @types/config @types/cookie-parser @types/cors @types/express @types/html-to-text @types/jsonwebtoken @types/morgan @types/nodemailer morgan ts-node ts-node-dev @types/pug
 
+# CSV parsing
+
+-   npm i -S csv-parser
+
 # Setup db connection with config and update scripts (package.json)
 
 ## Migrations

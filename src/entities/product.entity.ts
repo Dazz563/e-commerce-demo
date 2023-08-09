@@ -10,6 +10,9 @@ export class Product extends Model {
 	@Column()
 	description: string;
 
+	// @Column()
+	// category: string;
+
 	@Column()
 	price: number;
 

@@ -1,0 +1,6 @@
+id,name,email,password,passwordConfirm,role,verified,post_title,post_content,post_image
+1,Darren,test1@gmail.com,password,password,admin,true,Post 1,Post 1 content,https://picsum.photos/200/300
+1,Darren,test1@gmail.com,password,password,admin,true,Post 2,Post 2 content,https://picsum.photos/200/300
+1,Darren,test1@gmail.com,password,password,admin,true,Post 3,Post 3 content,https://picsum.photos/200/300
+1,Darren,test1@gmail.com,password,password,admin,true,Post 4,Post 4 content,https://picsum.photos/200/300
+2,Mark,test2@gmail.com,password,password,user,true,Post 5,Post 5 content,https://picsum.photos/200/300

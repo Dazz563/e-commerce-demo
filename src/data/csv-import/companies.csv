@@ -1,0 +1,16 @@
+id,name,industry,headquarters,founded,employees,revenue,website,product_name,product_description,product_price
+1,TechCo Innovations,Technology,Silicon Valley, USA,2010,1500,"$500 million",https://www.techcoinnovations.com,TechCo Cloud,Cloud storage and computing,50
+1,TechCo Innovations,Technology,Silicon Valley, USA,2010,1500,"$500 million",https://www.techcoinnovations.com,TechCo Analytics,Data analytics and insights,100
+1,TechCo Innovations,Technology,Silicon Valley, USA,2010,1500,"$500 million",https://www.techcoinnovations.com,TechCo Security,Cybersecurity and threat detection,150
+2,GreenEco Solutions,Renewable Energy,Berlin, Germany,2008,800,"$300 million",https://www.greenecosolutions.com,GreenEco Solar,Solar panels and solar energy,50
+2,GreenEco Solutions,Renewable Energy,Berlin, Germany,2008,800,"$300 million",https://www.greenecosolutions.com,GreenEco Wind,Wind turbines and wind energy,100
+3,GlobalFood Enterprises,Food and Beverage,New York City, USA,1995,3000,"$1.2 billion",https://www.globalfoodenterprises.com,GlobalFood Drinks,Soft drinks and beverages,50
+3,GlobalFood Enterprises,Food and Beverage,New York City, USA,1995,3000,"$1.2 billion",https://www.globalfoodenterprises.com,GlobalFood Snacks,Snacks and confectionery,100
+3,GlobalFood Enterprises,Food and Beverage,New York City, USA,1995,3000,"$1.2 billion",https://www.globalfoodenterprises.com,GlobalFood Dairy,Dairy products and milk,150
+3,GlobalFood Enterprises,Food and Beverage,New York City, USA,1995,3000,"$1.2 billion",https://www.globalfoodenterprises.com,GlobalFood Meat,Meat and poultry,200
+3,GlobalFood Enterprises,Food and Beverage,New York City, USA,1995,3000,"$1.2 billion",https://www.globalfoodenterprises.com,GlobalFood Seafood,Seafood and fish,250
+4,SwiftLogistics,Logistics and Transportation,Tokyo, Japan,2012,1200,"$400 million",https://www.swiftlogistics.com,SwiftLogistics Air,Air freight and cargo,50
+4,SwiftLogistics,Logistics and Transportation,Tokyo, Japan,2012,1200,"$400 million",https://www.swiftlogistics.com,SwiftLogistics Sea,Sea freight and cargo,100
+5,HealthWell Pharmaceutics,Pharmaceuticals,London, UK,1990,2500,"$800 million",https://www.healthwellpharma.com,HealthWell Drugs,Medicines and drugs,50
+5,HealthWell Pharmaceutics,Pharmaceuticals,London, UK,1990,2500,"$800 million",https://www.healthwellpharma.com,HealthWell Supplements,Vitamins and supplements,100
+5,HealthWell Pharmaceutics,Pharmaceuticals,London, UK,1990,2500,"$800 million",https://www.healthwellpharma.com,HealthWell Devices,Medical devices and equipment,150

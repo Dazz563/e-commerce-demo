@@ -1,3 +1,8 @@
+import {DeepPartial} from 'typeorm';
+import {Category} from '../../entities/category.entity';
+import {FormInput} from '../../entities/formInput.entity';
+import {RoleEnumType, User} from '../../entities/user.entity';
+
 export const COMPANIES: any = {
 	1: {
 		name: 'TechCo Innovations',
@@ -131,13 +136,12 @@ export const COMPANIES: any = {
 	},
 };
 
-export const USERS = {
-	1: {
+export const USERS: DeepPartial<User[]> = [
+	{
 		name: 'Darren',
 		email: 'test1@gmail.com',
 		password: 'password',
-		passwordConfirm: 'password',
-		role: 'admin',
+		role: RoleEnumType.USER,
 		verified: true,
 		posts: [
 			{
@@ -162,12 +166,11 @@ export const USERS = {
 			},
 		],
 	},
-	2: {
+	{
 		name: 'Mark',
 		email: 'test2@gmail.com',
 		password: 'password',
-		passwordConfirm: 'password',
-		role: 'user',
+		role: RoleEnumType.USER,
 		verified: true,
 		posts: [
 			{
@@ -177,4 +180,332 @@ export const USERS = {
 			},
 		],
 	},
-};
+];
+
+export const FORMINPUTS: DeepPartial<FormInput[]> = [
+	{
+		description: 'Make',
+		inputType: 'text',
+		inputName: 'make',
+		required: true,
+	},
+	{
+		description: 'Model',
+		inputType: 'text',
+		inputName: 'model',
+		required: true,
+	},
+	{
+		description: 'Year',
+		inputType: 'number',
+		inputName: 'year',
+		required: true,
+	},
+	{
+		description: 'Price',
+		inputType: 'number',
+		inputName: 'price',
+		required: true,
+	},
+	{
+		description: 'Mileage',
+		inputType: 'number',
+		inputName: 'mileage',
+		required: true,
+	},
+	{
+		description: 'Production Date',
+		inputType: 'date',
+		inputName: 'productionDate',
+		required: true,
+	},
+	{
+		description: 'Fuel Type',
+		inputType: 'text',
+		inputName: 'fuelType',
+		required: true,
+	},
+	{
+		description: 'Purchase Price',
+		inputType: 'number',
+		inputName: 'purchasePrice',
+		required: true,
+	},
+	{
+		description: 'Purchase Date',
+		inputType: 'date',
+		inputName: 'purchaseDate',
+		required: true,
+	},
+	{
+		description: 'Warranty expiry date',
+		inputType: 'date',
+		inputName: 'warrantyExpiryDate',
+		required: true,
+	},
+	{
+		description: 'Proof of purchase',
+		inputType: 'boolean',
+		inputName: 'proofOfPurchase',
+		required: true,
+	},
+	{
+		description: 'Artist name & surname',
+		inputType: 'text',
+		inputName: 'artistName',
+		required: true,
+	},
+	{
+		description: 'Title of the artwork',
+		inputType: 'text',
+		inputName: 'title',
+		required: true,
+	},
+	{
+		description: 'Genre',
+		inputType: 'text',
+		inputName: 'genre',
+		required: true,
+	},
+	{
+		description: 'Medium',
+		inputType: 'text',
+		inputName: 'medium',
+		required: true,
+	},
+	{
+		description: 'Dimensions',
+		inputType: 'text',
+		inputName: 'dimensions',
+		required: true,
+	},
+	{
+		description: 'Appraisal value',
+		inputType: 'currency',
+		inputName: 'appraisalValue',
+		required: true,
+	},
+	{
+		description: 'Appraisal date',
+		inputType: 'date',
+		inputName: 'appraisalDate',
+		required: true,
+	},
+	{
+		description: 'Make/Brand',
+		inputType: 'text',
+		inputName: 'makeOrBrand',
+		required: true,
+	},
+	{
+		description: 'Registration number',
+		inputType: 'text',
+		inputName: 'registrationNumber',
+		required: true,
+	},
+	{
+		description: 'Serial number',
+		inputType: 'text',
+		inputName: 'serialNumber',
+		required: true,
+	},
+	{
+		description: 'Vin number',
+		inputType: 'text',
+		inputName: 'vinNumber',
+		required: true,
+	},
+	{
+		description: 'Instrument type',
+		inputType: 'text',
+		inputName: 'instrumentType',
+		required: true,
+	},
+	{
+		description: 'Color',
+		inputType: 'text',
+		inputName: 'color',
+		required: true,
+	},
+	{
+		description: 'Detailed description',
+		inputType: 'text',
+		inputName: 'detailedDescription',
+		required: true,
+	},
+	{
+		description: 'Transmission',
+		inputType: 'text',
+		inputName: 'transmission',
+		required: true,
+	},
+	{
+		description: 'Manufacturer',
+		inputType: 'text',
+		inputName: 'manufacturer',
+		required: true,
+	},
+	{
+		description: 'Condition',
+		inputType: 'text',
+		inputName: 'condition',
+		required: true,
+	},
+	{
+		description: 'Power source',
+		inputType: 'text',
+		inputName: 'powerSource',
+		required: true,
+	},
+	{
+		description: 'Assembly required',
+		inputType: 'boolean',
+		inputName: 'assemblyRequired',
+		required: true,
+	},
+	{
+		description: 'Weight',
+		inputType: 'number',
+		inputName: 'weight',
+		required: true,
+	},
+	{
+		description: 'Metal type',
+		inputType: 'text',
+		inputName: 'metalType',
+		required: true,
+	},
+	{
+		description: 'Stone type',
+		inputType: 'text',
+		inputName: 'stoneType',
+		required: true,
+	},
+	{
+		description: 'Chain length',
+		inputType: 'number',
+		inputName: 'chainLength',
+		required: true,
+	},
+	{
+		description: 'Ring size',
+		inputType: 'number',
+		inputName: 'ringSize',
+		required: true,
+	},
+	{
+		description: 'Rarity level',
+		inputType: 'text',
+		inputName: 'rarityLevel',
+		required: true,
+	},
+	{
+		description: 'Limited edition',
+		inputType: 'boolean',
+		inputName: 'limitedEdition',
+		required: true,
+	},
+	{
+		description: 'Edition number',
+		inputType: 'number',
+		inputName: 'editionNumber',
+		required: true,
+	},
+	{
+		description: 'Suspension type',
+		inputType: 'text',
+		inputName: 'suspensionType',
+		required: true,
+	},
+	{
+		description: 'Reccomended age',
+		inputType: 'number',
+		inputName: 'reccomendedAge',
+		required: true,
+	},
+	{
+		description: 'Water resistence',
+		inputType: 'text',
+		inputName: 'waterResistence',
+		required: true,
+	},
+	{
+		description: 'Clasp type',
+		inputType: 'text',
+		inputName: 'claspType',
+		required: true,
+	},
+];
+
+export const CATEGORIES: DeepPartial<Category[]> = [
+	{
+		description: 'Electronics',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Art',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Cars & Trailors',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Motorcycles',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Investment cars',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Musical Instruments',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Furniture and fittings',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Jewellery',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Collectibles',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Garden equipment',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Kitchen appliances',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Road and mountain bikes',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Sports equipment',
+		active: true,
+		icon: 'icon.svg',
+	},
+	{
+		description: 'Watches',
+		active: true,
+		icon: 'icon.svg',
+	},
+];
