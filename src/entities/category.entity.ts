@@ -26,4 +26,12 @@ export class Category extends Model {
 		},
 	})
 	formInputs: FormInput[];
+
+	toJSON() {
+		return {
+			...this,
+			created_at: undefined,
+			updated_at: undefined,
+		};
+	}
 }

@@ -8,8 +8,15 @@ import {createPostSchema, deletePostSchema, getPostSchema, updatePostSchema} fro
 const router = express.Router();
 
 router.use(deserializeUser, requireUser);
-router.route('/').post(validate(createPostSchema), createPostHandler).get(getPostsHandler);
+router //
+	.route('/')
+	.post(validate(createPostSchema), createPostHandler)
+	.get(getPostsHandler);
 
-router.route('/:postId').get(validate(getPostSchema), getPostHandler).patch(validate(updatePostSchema), updatePostHandler).delete(validate(deletePostSchema), deletePostHandler);
+router //
+	.route('/:postId')
+	.get(validate(getPostSchema), getPostHandler)
+	.patch(validate(updatePostSchema), updatePostHandler)
+	.delete(validate(deletePostSchema), deletePostHandler);
 
 export default router;

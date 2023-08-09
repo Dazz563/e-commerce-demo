@@ -18,4 +18,12 @@ export class FormInput extends Model {
 
 	@ManyToMany(() => Category, (category) => category.formInputs)
 	category: Category[];
+
+	toJSON() {
+		return {
+			...this,
+			created_at: undefined,
+			updated_at: undefined,
+		};
+	}
 }
