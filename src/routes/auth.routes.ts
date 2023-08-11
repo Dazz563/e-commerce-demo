@@ -9,6 +9,7 @@ import {
 import {deserializeUser} from '../middleware/deserializeUser';
 import {requireUser} from '../middleware/requireUser';
 import {validate} from '../middleware/validate';
+import {loginlimiter} from '../middleware/rateLimiter';
 import {createUserSchema, loginUserSchema, verifyEmailSchema} from '../schemas/user.schema';
 
 const router = express.Router();
@@ -17,7 +18,7 @@ const router = express.Router();
 router.post('/register', validate(createUserSchema), registerUserHandler);
 
 // Login user
-router.post('/login', validate(loginUserSchema), loginUserHandler);
+router.post('/login', loginlimiter, validate(loginUserSchema), loginUserHandler);
 
 // Logout user
 router.get('/logout', deserializeUser, requireUser, logoutHandler);
