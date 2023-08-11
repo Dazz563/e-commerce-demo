@@ -1,7 +1,7 @@
 import {DeepPartial} from 'typeorm';
 import {Category} from '../../entities/category.entity';
 import {FormInput} from '../../entities/formInput.entity';
-import {RoleEnumType, User} from '../../entities/user.entity';
+import {RoleEnumType} from '../../entities/user.entity';
 
 export const COMPANIES: any = {
 	1: {
@@ -29,6 +29,22 @@ export const COMPANIES: any = {
 				price: 150,
 			},
 		],
+		users: [
+			{
+				name: 'Darren',
+				email: 'test1@gmail.com',
+				password: 'password',
+				role: RoleEnumType.ADMIN,
+				verified: true,
+			},
+			{
+				name: 'Balion',
+				email: 'test6@gmail.com',
+				password: 'password',
+				role: RoleEnumType.ADMIN,
+				verified: true,
+			},
+		],
 	},
 	2: {
 		name: 'GreenEco Solutions',
@@ -48,6 +64,15 @@ export const COMPANIES: any = {
 				name: 'GreenEco Wind',
 				description: 'Wind turbines and wind energy',
 				price: 100,
+			},
+		],
+		users: [
+			{
+				name: 'Eric',
+				email: 'test2@gmail.com',
+				password: 'password',
+				role: RoleEnumType.ADMIN,
+				verified: true,
 			},
 		],
 	},
@@ -86,6 +111,15 @@ export const COMPANIES: any = {
 				price: 250,
 			},
 		],
+		users: [
+			{
+				name: 'Vern',
+				email: 'test3@gmail.com',
+				password: 'password',
+				role: RoleEnumType.ADMIN,
+				verified: true,
+			},
+		],
 	},
 	4: {
 		name: 'SwiftLogistics',
@@ -105,6 +139,15 @@ export const COMPANIES: any = {
 				name: 'SwiftLogistics Sea',
 				description: 'Sea freight and cargo',
 				price: 100,
+			},
+		],
+		users: [
+			{
+				name: 'Mark',
+				email: 'test4@gmail.com',
+				password: 'password',
+				role: RoleEnumType.ADMIN,
+				verified: true,
 			},
 		],
 	},
@@ -133,54 +176,63 @@ export const COMPANIES: any = {
 				price: 150,
 			},
 		],
+		users: [
+			{
+				name: 'Rowena',
+				email: 'test5@gmail.com',
+				password: 'password',
+				role: RoleEnumType.ADMIN,
+				verified: true,
+			},
+		],
 	},
 };
 
-export const USERS: DeepPartial<User[]> = [
-	{
-		name: 'Darren',
-		email: 'test1@gmail.com',
-		password: 'password',
-		role: RoleEnumType.USER,
-		verified: true,
-		posts: [
-			{
-				title: 'Post 1',
-				content: 'Post 1 content',
-				image: 'https://picsum.photos/200/300',
-			},
-			{
-				title: 'Post 2',
-				content: 'Post 2 content',
-				image: 'https://picsum.photos/200/300',
-			},
-			{
-				title: 'Post 3',
-				content: 'Post 3 content',
-				image: 'https://picsum.photos/200/300',
-			},
-			{
-				title: 'Post 4',
-				content: 'Post 4 content',
-				image: 'https://picsum.photos/200/300',
-			},
-		],
-	},
-	{
-		name: 'Mark',
-		email: 'test2@gmail.com',
-		password: 'password',
-		role: RoleEnumType.USER,
-		verified: true,
-		posts: [
-			{
-				title: 'Post 5',
-				content: 'Post 5 content',
-				image: 'https://picsum.photos/200/300',
-			},
-		],
-	},
-];
+// export const USERS: DeepPartial<User[]> = [
+// 	{
+// 		name: 'Darren',
+// 		email: 'test1@gmail.com',
+// 		password: 'password',
+// 		role: RoleEnumType.ADMIN,
+// 		verified: true,
+// 		posts: [
+// 			{
+// 				title: 'Post 1',
+// 				content: 'Post 1 content',
+// 				image: 'https://picsum.photos/200/300',
+// 			},
+// 			{
+// 				title: 'Post 2',
+// 				content: 'Post 2 content',
+// 				image: 'https://picsum.photos/200/300',
+// 			},
+// 			{
+// 				title: 'Post 3',
+// 				content: 'Post 3 content',
+// 				image: 'https://picsum.photos/200/300',
+// 			},
+// 			{
+// 				title: 'Post 4',
+// 				content: 'Post 4 content',
+// 				image: 'https://picsum.photos/200/300',
+// 			},
+// 		],
+// 	},
+// 	{
+// 		name: 'Mark',
+// 		email: 'test2@gmail.com',
+// 		password: 'password',
+// 		role: RoleEnumType.ADMIN,
+// 		verified: true,
+// 		posts: [
+// 			{
+// 				title: 'Post 5',
+// 				content: 'Post 5 content',
+// 				image: 'https://picsum.photos/200/300',
+// 			},
+// 		],
+// 	},
+// ];
 
 export const FORMINPUTS: DeepPartial<FormInput[]> = [
 	{

@@ -1,8 +1,8 @@
 import crypto from 'crypto';
-import {Entity, Column, Index, BeforeInsert, OneToMany} from 'typeorm';
+import {Entity, Column, Index, BeforeInsert, OneToMany, JoinColumn, OneToOne, ManyToOne} from 'typeorm';
 import bcrypt from 'bcryptjs';
 import Model from './model.entity';
-import {Post} from './post.entity';
+import {Company} from './company.entity';
 
 export enum RoleEnumType {
 	USER = 'user',
@@ -26,9 +26,9 @@ export class User extends Model {
 	@Column({
 		type: 'enum',
 		enum: RoleEnumType,
-		default: RoleEnumType.USER,
+		default: RoleEnumType.ADMIN,
 	})
-	role: RoleEnumType.USER;
+	role: RoleEnumType.ADMIN;
 
 	@Column({
 		default: 'default.png',
@@ -48,8 +48,13 @@ export class User extends Model {
 	})
 	verificationCode!: string | null;
 
-	@OneToMany(() => Post, (post) => post.user)
-	posts: Post[];
+	@ManyToOne(() => Company, (company) => company.users, {
+		nullable: true,
+		onDelete: 'CASCADE',
+		onUpdate: 'CASCADE',
+	})
+	@JoinColumn({name: 'company_id'})
+	company: Company;
 
 	@BeforeInsert()
 	async hashPassword() {

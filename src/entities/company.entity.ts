@@ -1,6 +1,7 @@
 import {Column, Entity, OneToMany} from 'typeorm';
 import {Product} from './product.entity';
 import Model from './model.entity';
+import {User} from './user.entity';
 
 @Entity('companies')
 export class Company extends Model {
@@ -27,4 +28,7 @@ export class Company extends Model {
 
 	@OneToMany(() => Product, (product) => product.company)
 	products: Product[];
+
+	@OneToMany(() => User, (user) => user.company)
+	users: User[];
 }

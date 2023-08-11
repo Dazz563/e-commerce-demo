@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 
-import {USERS, COMPANIES, CATEGORIES, FORMINPUTS} from './db-data';
+import {COMPANIES, CATEGORIES, FORMINPUTS} from './db-data';
 import {AppDataSource} from '../../utils/data-source';
 import {User} from '../../entities/user.entity';
-import {Post} from '../../entities/post.entity';
+// import {Post} from '../../entities/post.entity';
 import {Company} from '../../entities/company.entity';
 import {Product} from '../../entities/product.entity';
 import {DeepPartial} from 'typeorm';
@@ -17,7 +17,6 @@ const populateDB = async () => {
 
 	const companyRepository = AppDataSource.getRepository(Company);
 	const userRepository = AppDataSource.getRepository(User);
-	const postRepository = AppDataSource.getRepository(Post);
 	const productRepository = AppDataSource.getRepository(Product);
 	const categoryRepository = AppDataSource.getRepository(Category);
 	const formInputRepository = AppDataSource.getRepository(FormInput);
@@ -31,38 +30,28 @@ const populateDB = async () => {
 
 		await companyRepository.save(company);
 
+		// Add users to database
+		for (let userData of companyData.users) {
+			console.log(`Adding user ${userData.name} to database...`);
+
+			const user = userRepository.create(userData);
+
+			// Add companyId to user (relationship, shorthand for user.company = id)
+			user.company = company;
+
+			await userRepository.save(user);
+		}
+
 		// Add products to database
 		if (!companyData.products) continue; //null check
 		for (let productData of companyData.products) {
+			console.log(`Adding product ${productData.name} to database...`);
 			const product = productRepository.create(productData);
 
-			// Add company to product (relationship, shorthand for product.company = id)
+			// Add companyId to product (relationship, shorthand for product.company = id)
 			product.company = company;
 
 			await productRepository.save(product);
-		}
-	}
-
-	// Add users to database
-	const users = USERS;
-	for (let userData of users) {
-		console.log(`Adding user ${userData.name} to database...`);
-
-		const user = userRepository.create(userData);
-
-		await userRepository.save(user);
-
-		// Add posts to database
-		if (!userData.posts) continue; //null check
-		for (let postData of userData.posts) {
-			console.log(`Adding post ${postData.title} to database...`);
-
-			const post = postRepository.create(postData);
-
-			// Add user to post (relationship, shorthand for post.user = id)
-			post.user = user;
-
-			await postRepository.save(post);
 		}
 	}
 

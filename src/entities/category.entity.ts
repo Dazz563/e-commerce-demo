@@ -15,7 +15,7 @@ export class Category extends Model {
 
 	@ManyToMany(() => FormInput, (formInput) => formInput.category)
 	@JoinTable({
-		name: 'category_form_input',
+		name: 'categories_form_inputs',
 		joinColumn: {
 			name: 'category_id', // Customize the name of the foreign key column in the junction table
 			referencedColumnName: 'id',

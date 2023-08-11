@@ -20,6 +20,6 @@ export class Product extends Model {
 		onDelete: 'CASCADE',
 		onUpdate: 'CASCADE',
 	})
-	@JoinColumn()
+	@JoinColumn({name: 'company_id'})
 	company!: Company;
 }

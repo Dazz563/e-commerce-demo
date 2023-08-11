@@ -21,5 +21,6 @@ export const loginlimiter = rateLimit({
 
 	store: new RedisStore({
 		sendCommand: (...args: string[]) => redisClient.sendCommand(args),
+		prefix: 'loginlimiter',
 	}),
 });
