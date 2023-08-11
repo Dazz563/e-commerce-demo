@@ -22,6 +22,7 @@ export class FormInput extends Model {
 	toJSON() {
 		return {
 			...this,
+			id: undefined,
 			created_at: undefined,
 			updated_at: undefined,
 		};

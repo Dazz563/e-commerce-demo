@@ -5,7 +5,7 @@ import {FormInput} from './formInput.entity';
 @Entity('categories')
 export class Category extends Model {
 	@Column()
-	description: string;
+	categoryName: string;
 
 	@Column()
 	active: boolean;
@@ -30,6 +30,7 @@ export class Category extends Model {
 	toJSON() {
 		return {
 			...this,
+			// id: undefined,
 			created_at: undefined,
 			updated_at: undefined,
 		};

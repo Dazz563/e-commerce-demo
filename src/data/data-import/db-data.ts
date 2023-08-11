@@ -439,72 +439,72 @@ export const FORMINPUTS: DeepPartial<FormInput[]> = [
 
 export const CATEGORIES: DeepPartial<Category[]> = [
 	{
-		description: 'Electronics',
+		categoryName: 'Electronics',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Art',
+		categoryName: 'Art',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Cars & Trailors',
+		categoryName: 'Cars & Trailors',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Motorcycles',
+		categoryName: 'Motorcycles',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Investment cars',
+		categoryName: 'Investment cars',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Musical Instruments',
+		categoryName: 'Musical Instruments',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Furniture and fittings',
+		categoryName: 'Furniture and fittings',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Jewellery',
+		categoryName: 'Jewellery',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Collectibles',
+		categoryName: 'Collectibles',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Garden equipment',
+		categoryName: 'Garden equipment',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Kitchen appliances',
+		categoryName: 'Kitchen appliances',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Road and mountain bikes',
+		categoryName: 'Road and mountain bikes',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Sports equipment',
+		categoryName: 'Sports equipment',
 		active: true,
 		icon: 'icon.svg',
 	},
 	{
-		description: 'Watches',
+		categoryName: 'Watches',
 		active: true,
 		icon: 'icon.svg',
 	},

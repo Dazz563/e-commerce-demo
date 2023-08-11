@@ -1,9 +1,9 @@
 import {NextFunction, Request, Response} from 'express';
-import {getAllCategoryInputs} from '../services/category.service';
+import {getAllActiveCategoryInputs} from '../services/category.service';
 
 export const getCategoryInputsHandler = async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		const categoryInputs = await getAllCategoryInputs();
+		const categoryInputs = await getAllActiveCategoryInputs();
 
 		res.status(200).json({
 			status: 'success',

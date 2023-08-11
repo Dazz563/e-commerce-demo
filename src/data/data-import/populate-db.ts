@@ -89,22 +89,22 @@ const populateDB = async () => {
 
 	// Iterate through the categories
 	for (const categoryData of categories) {
-		console.log(`Adding category ${categoryData.description} to database...`);
+		console.log(`Adding category ${categoryData.categoryName} to database...`);
 
 		// Create and save the category entity
 		const category = categoryRepository.create({
-			description: categoryData.description,
+			categoryName: categoryData.categoryName,
 			active: categoryData.active,
 			icon: categoryData.icon,
 		});
 		const savedCategory = await categoryRepository.save(category);
 
 		// Find form inputs associated with the current category description
-		const categoryFieldName = categoryData.description; // Get the category field name
+		const categoryFieldName = categoryData.categoryName; // Get the category field name
 		const formInputsForCategory = formInputs.filter((input) => categorizedFields[categoryFieldName].includes(input.description));
 
 		// console.log(`Form inputs for ${categoryData.description}:`, formInputsForCategory);
-		console.log(`Form inputs for ${categoryData.description}`);
+		console.log(`Form inputs for ${categoryData.categoryName}`);
 
 		// Create and associate form inputs with the category
 		for (const formInputData of formInputsForCategory) {

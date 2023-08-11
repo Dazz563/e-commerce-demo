@@ -16,7 +16,7 @@ Steps to run this project:
 
 # Install depencencies
 
--   npm i -S bcryptjs config cookie-parser cors dotenv envalid html-to-text nodemailer ejs redis zod jsonwebtoken morgan mysql2
+-   npm i -S bcryptjs config cookie-parser cors dotenv envalid html-to-text nodemailer ejs redis zod jsonwebtoken morgan mysql2 express-rate-limit rate-limit-redis
 
 # Install dev dependencies
 
