@@ -14,18 +14,21 @@ export const COMPANIES: any = {
 		website: 'https://www.techcoinnovations.com',
 		products: [
 			{
-				name: 'TechCo Cloud',
+				prodName: 'TechCo Cloud',
 				description: 'Cloud storage and computing',
+				category: 'test-category',
 				price: 50,
 			},
 			{
-				name: 'TechCo Analytics',
+				prodName: 'TechCo Analytics',
 				description: 'Data analytics and insights',
+				category: 'test-category',
 				price: 100,
 			},
 			{
-				name: 'TechCo Security',
+				prodName: 'TechCo Security',
 				description: 'Cybersecurity and threat detection',
+				category: 'test-category',
 				price: 150,
 			},
 		],
@@ -56,13 +59,15 @@ export const COMPANIES: any = {
 		website: 'https://www.greenecosolutions.com',
 		products: [
 			{
-				name: 'GreenEco Solar',
+				prodName: 'GreenEco Solar',
 				description: 'Solar panels and solar energy',
+				category: 'test-category',
 				price: 50,
 			},
 			{
-				name: 'GreenEco Wind',
+				prodName: 'GreenEco Wind',
 				description: 'Wind turbines and wind energy',
+				category: 'test-category',
 				price: 100,
 			},
 		],
@@ -70,6 +75,7 @@ export const COMPANIES: any = {
 			{
 				name: 'Eric',
 				email: 'test2@gmail.com',
+				category: 'test-category',
 				password: 'password',
 				role: RoleEnumType.ADMIN,
 				verified: true,
@@ -86,28 +92,33 @@ export const COMPANIES: any = {
 		website: 'https://www.globalfoodenterprises.com',
 		products: [
 			{
-				name: 'GlobalFood Drinks',
+				prodName: 'GlobalFood Drinks',
 				description: 'Soft drinks and beverages',
+				category: 'test-category',
 				price: 50,
 			},
 			{
-				name: 'GlobalFood Snacks',
+				prodName: 'GlobalFood Snacks',
 				description: 'Snacks and confectionery',
+				category: 'test-category',
 				price: 100,
 			},
 			{
-				name: 'GlobalFood Dairy',
+				prodName: 'GlobalFood Dairy',
 				description: 'Dairy products and milk',
+				category: 'test-category',
 				price: 150,
 			},
 			{
-				name: 'GlobalFood Meat',
+				prodName: 'GlobalFood Meat',
 				description: 'Meat and poultry',
+				category: 'test-category',
 				price: 200,
 			},
 			{
-				name: 'GlobalFood Seafood',
+				prodName: 'GlobalFood Seafood',
 				description: 'Seafood and fish',
+				category: 'test-category',
 				price: 250,
 			},
 		],
@@ -131,13 +142,15 @@ export const COMPANIES: any = {
 		website: 'https://www.swiftlogistics.com',
 		products: [
 			{
-				name: 'SwiftLogistics Air',
+				prodName: 'SwiftLogistics Air',
 				description: 'Air freight and cargo',
+				category: 'test-category',
 				price: 50,
 			},
 			{
-				name: 'SwiftLogistics Sea',
+				prodName: 'SwiftLogistics Sea',
 				description: 'Sea freight and cargo',
+				category: 'test-category',
 				price: 100,
 			},
 		],
@@ -161,18 +174,21 @@ export const COMPANIES: any = {
 		website: 'https://www.healthwellpharma.com',
 		products: [
 			{
-				name: 'HealthWell Drugs',
+				prodName: 'HealthWell Drugs',
 				description: 'Medicines and drugs',
+				category: 'test-category',
 				price: 50,
 			},
 			{
-				name: 'HealthWell Supplements',
+				prodName: 'HealthWell Supplements',
 				description: 'Vitamins and supplements',
+				category: 'test-category',
 				price: 100,
 			},
 			{
-				name: 'HealthWell Devices',
+				prodName: 'HealthWell Devices',
 				description: 'Medical devices and equipment',
+				category: 'test-category',
 				price: 150,
 			},
 		],

@@ -2,11 +2,14 @@ import {number, object, string, TypeOf} from 'zod';
 
 export const createProductSchema = object({
 	body: object({
-		name: string({
+		prodName: string({
 			required_error: 'Name is required',
 		}),
 		description: string({
 			required_error: 'Description is required',
+		}),
+		category: string({
+			required_error: 'Category is required',
 		}),
 		price: number({
 			required_error: 'Price is required',

@@ -21,6 +21,11 @@ export const findUserById = async (userId: string) => {
 export const findUser = async (query: Object) => {
 	return await userRepository.findOneBy(query);
 };
+
+export const findUserCompany = async (userId: string) => {
+	return await userRepository.findOne({where: {id: userId}, relations: ['company']});
+};
+
 export const signTokens = async (user: User) => {
 	// 1. Create Session
 	redisClient.set(user.id, JSON.stringify(user), {

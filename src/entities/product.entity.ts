@@ -4,14 +4,14 @@ import Model from './model.entity';
 
 @Entity('products')
 export class Product extends Model {
-	@Column()
-	name: string;
+	@Column({name: 'product_name', unique: true})
+	prodName: string;
 
 	@Column()
 	description: string;
 
-	// @Column()
-	// category: string;
+	@Column()
+	category: string;
 
 	@Column()
 	price: number;

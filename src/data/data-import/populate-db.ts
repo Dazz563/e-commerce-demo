@@ -45,7 +45,7 @@ const populateDB = async () => {
 		// Add products to database
 		if (!companyData.products) continue; //null check
 		for (let productData of companyData.products) {
-			console.log(`Adding product ${productData.name} to database...`);
+			console.log(`Adding product ${productData.prodName} to database...`);
 			const product = productRepository.create(productData);
 
 			// Add companyId to product (relationship, shorthand for product.company = id)
