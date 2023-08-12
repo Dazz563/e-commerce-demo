@@ -1,20 +1,15 @@
 import {NextFunction, Request, Response} from 'express';
 import {CreateProductInput, DeleteProductInput, GetProductInput, UpdateProductInput} from '../schemas/product.schema';
-import {createProduct, findProducts, getProduct} from '../services/product.service';
+import {createProduct, findProducts, findProductsByCompany, getProduct} from '../services/product.service';
 import {findUserCompany} from '../services/user.service';
 import AppError from '../utils/appError';
 
-export const createProductHandler = async (req: Request<{}, {}, CreateProductInput>, res: Response, next: NextFunction) => {
+export const adminCreateProductHandler = async (req: Request<{}, {}, CreateProductInput>, res: Response, next: NextFunction) => {
 	try {
 		const user = await findUserCompany(res.locals.user.id as string);
-		console.log('user: ', user);
-
-		// check user is admin
-		if (user.role !== 'admin') {
-			return next(new AppError(401, 'You are not authorized to create a product'));
-		}
 
 		const product = await createProduct(req.body, user.company);
+
 		res.status(201).json({
 			status: 'success',
 			data: {
@@ -36,7 +31,6 @@ export const createProductHandler = async (req: Request<{}, {}, CreateProductInp
 export const getProductHandler = async (req: Request<GetProductInput>, res: Response, next: NextFunction) => {
 	try {
 		const product = await getProduct(req.params.productId);
-		console.log('product: ', product);
 
 		if (!product) {
 			return next(new AppError(404, 'Product with that ID not found'));
@@ -55,13 +49,13 @@ export const getProductHandler = async (req: Request<GetProductInput>, res: Resp
 
 export const getProductsHandler = async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		const posts = await findProducts(req);
+		const products = await findProducts(req);
 
 		res.status(200).json({
 			status: 'success',
-			results: posts.length,
+			results: products.length,
 			data: {
-				posts,
+				products,
 			},
 		});
 	} catch (err: any) {
@@ -69,22 +63,20 @@ export const getProductsHandler = async (req: Request, res: Response, next: Next
 	}
 };
 
-export const updateProductHandler = async (req: Request<UpdateProductInput['params'], {}, UpdateProductInput['body']>, res: Response, next: NextFunction) => {
+// Admin get all products belonging to a company
+export const adminGetProductsHandler = async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		const post = await getProduct(req.params.productId);
+		// Get the user and the company they belong to
+		const user = await findUserCompany(res.locals.user.id as string);
 
-		if (!post) {
-			return next(new AppError(404, 'Post with that ID not found'));
-		}
-
-		Object.assign(post, req.body);
-
-		const updatedPost = await post.save();
+		// Search for all products belonging to the company
+		const products = await findProductsByCompany(user.company);
 
 		res.status(200).json({
 			status: 'success',
+			results: products.length,
 			data: {
-				post: updatedPost,
+				products,
 			},
 		});
 	} catch (err: any) {
@@ -92,15 +84,38 @@ export const updateProductHandler = async (req: Request<UpdateProductInput['para
 	}
 };
 
-export const deleteProductHandler = async (req: Request<DeleteProductInput>, res: Response, next: NextFunction) => {
+export const adminUpdateProductHandler = async (req: Request<UpdateProductInput['params'], {}, UpdateProductInput['body']>, res: Response, next: NextFunction) => {
 	try {
-		const post = await getProduct(req.params.productId);
+		const product = await getProduct(req.params.productId);
 
-		if (!post) {
-			return next(new AppError(404, 'Post with that ID not found'));
+		if (!product) {
+			return next(new AppError(404, `Product with that ID not found`));
 		}
 
-		await post.remove();
+		Object.assign(product, req.body);
+
+		const updatedProduct = await product.save();
+
+		res.status(200).json({
+			status: 'success',
+			data: {
+				product: updatedProduct,
+			},
+		});
+	} catch (err: any) {
+		next(err);
+	}
+};
+
+export const adminDeleteProductHandler = async (req: Request<DeleteProductInput>, res: Response, next: NextFunction) => {
+	try {
+		const product = await getProduct(req.params.productId);
+
+		if (!product) {
+			return next(new AppError(404, 'Product with that ID not found'));
+		}
+
+		await product.remove();
 
 		res.status(204).json({
 			status: 'success',

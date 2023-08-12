@@ -30,3 +30,11 @@ export const findProducts = async (req: Request) => {
 
 	return await builder.getMany();
 };
+
+export const findProductsByCompany = async (company: Company) => {
+	return await productRepository //
+		.createQueryBuilder('product')
+		.where('product.company = :company', {company: company.id})
+		.orderBy('product.created_at', 'DESC')
+		.getMany();
+};

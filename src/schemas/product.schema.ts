@@ -30,8 +30,9 @@ export const getProductSchema = object({
 export const updateProductSchema = object({
 	...params,
 	body: object({
-		name: string(),
+		prodName: string(),
 		description: string(),
+		category: string(),
 		price: number(),
 	}).partial(),
 });
