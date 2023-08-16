@@ -44,7 +44,6 @@ export class User extends Model {
 	@Column({
 		type: 'text',
 		nullable: true,
-		// length: 64,
 	})
 	verificationCode!: string | null;
 

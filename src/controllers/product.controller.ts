@@ -66,7 +66,10 @@ export const getProductsHandler = async (req: Request, res: Response, next: Next
 // Admin get all products belonging to a company
 export const adminGetProductsHandler = async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		// Get the user and the company they belong to
+		/**
+		 * Get the user and the company they belong to!
+		 * Important - this will only return the company id related to the user logged in preventing a user from accessing another company's products
+		 */
 		const user = await findUserCompany(res.locals.user.id as string);
 
 		// Search for all products belonging to the company
