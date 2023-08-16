@@ -204,51 +204,23 @@ export const COMPANIES: any = {
 	},
 };
 
-// export const USERS: DeepPartial<User[]> = [
-// 	{
-// 		name: 'Darren',
-// 		email: 'test1@gmail.com',
-// 		password: 'password',
-// 		role: RoleEnumType.ADMIN,
-// 		verified: true,
-// 		posts: [
-// 			{
-// 				title: 'Post 1',
-// 				content: 'Post 1 content',
-// 				image: 'https://picsum.photos/200/300',
-// 			},
-// 			{
-// 				title: 'Post 2',
-// 				content: 'Post 2 content',
-// 				image: 'https://picsum.photos/200/300',
-// 			},
-// 			{
-// 				title: 'Post 3',
-// 				content: 'Post 3 content',
-// 				image: 'https://picsum.photos/200/300',
-// 			},
-// 			{
-// 				title: 'Post 4',
-// 				content: 'Post 4 content',
-// 				image: 'https://picsum.photos/200/300',
-// 			},
-// 		],
-// 	},
-// 	{
-// 		name: 'Mark',
-// 		email: 'test2@gmail.com',
-// 		password: 'password',
-// 		role: RoleEnumType.ADMIN,
-// 		verified: true,
-// 		posts: [
-// 			{
-// 				title: 'Post 5',
-// 				content: 'Post 5 content',
-// 				image: 'https://picsum.photos/200/300',
-// 			},
-// 		],
-// 	},
-// ];
+// Normal users for shopping
+export const USERS = [
+	{
+		name: 'John',
+		email: 'john@gmail.com',
+		password: 'password',
+		role: RoleEnumType.USER,
+		verified: true,
+	},
+	{
+		name: 'Jane',
+		email: 'jane@gmail.com',
+		password: 'password',
+		role: RoleEnumType.USER,
+		verified: true,
+	},
+];
 
 export const FORMINPUTS: DeepPartial<FormInput[]> = [
 	{

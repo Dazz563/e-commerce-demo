@@ -3,6 +3,7 @@ import {Entity, Column, Index, BeforeInsert, OneToMany, JoinColumn, OneToOne, Ma
 import bcrypt from 'bcryptjs';
 import Model from './model.entity';
 import {Company} from './company.entity';
+import {Cart} from './cart.entity';
 
 export enum RoleEnumType {
 	USER = 'user',
@@ -54,6 +55,9 @@ export class User extends Model {
 	})
 	@JoinColumn({name: 'company_id'})
 	company: Company;
+
+	@OneToOne(() => Cart, (cart) => cart.user)
+	cart: Cart;
 
 	@BeforeInsert()
 	async hashPassword() {

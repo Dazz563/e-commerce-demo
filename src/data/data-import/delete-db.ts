@@ -5,11 +5,19 @@ import {Company} from '../../entities/company.entity';
 import {User} from '../../entities/user.entity';
 import {Category} from '../../entities/category.entity';
 import {FormInput} from '../../entities/formInput.entity';
+import {CartItem} from '../../entities/cartItem.entity';
+import {Cart} from '../../entities/cart.entity';
 
 const deleteDB = async () => {
 	await AppDataSource.initialize();
 
 	console.log('Connected to database...');
+
+	console.log('Deleting cartItems...');
+	await AppDataSource.getRepository(CartItem).delete({});
+
+	console.log('Deleting carts...');
+	await AppDataSource.getRepository(Cart).delete({});
 
 	// Child of companies must delete before company parent (contains company_id foreign key)
 	console.log('Deleting products...');

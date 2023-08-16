@@ -1,14 +1,15 @@
 import 'reflect-metadata';
+import {DeepPartial} from 'typeorm';
 
-import {COMPANIES, CATEGORIES, FORMINPUTS} from './db-data';
+import {COMPANIES, CATEGORIES, FORMINPUTS, USERS} from './db-data';
 import {AppDataSource} from '../../utils/data-source';
 import {User} from '../../entities/user.entity';
-// import {Post} from '../../entities/post.entity';
 import {Company} from '../../entities/company.entity';
 import {Product} from '../../entities/product.entity';
-import {DeepPartial} from 'typeorm';
 import {Category} from '../../entities/category.entity';
 import {FormInput} from '../../entities/formInput.entity';
+import {Cart} from '../../entities/cart.entity';
+import {CartItem} from '../../entities/cartItem.entity';
 
 const populateDB = async () => {
 	await AppDataSource.initialize();
@@ -20,8 +21,10 @@ const populateDB = async () => {
 	const productRepository = AppDataSource.getRepository(Product);
 	const categoryRepository = AppDataSource.getRepository(Category);
 	const formInputRepository = AppDataSource.getRepository(FormInput);
+	const cartRepository = AppDataSource.getRepository(Cart);
+	const cartItemRepository = AppDataSource.getRepository(CartItem);
 
-	// Add companies to database
+	// Add companies with employees and products to database
 	const companies = Object.values(COMPANIES) as DeepPartial<Company>[]; // Convert object to array
 	for (let companyData of companies) {
 		console.log(`Adding company ${companyData.name} to database...`);
@@ -52,6 +55,69 @@ const populateDB = async () => {
 			product.company = company;
 
 			await productRepository.save(product);
+		}
+	}
+
+	// Add users for shopping with null company to database
+	const users = USERS as DeepPartial<User>[];
+	for (let userData of users) {
+		console.log(`Adding user ${userData.name} to database...`);
+
+		const user = userRepository.create(userData);
+
+		await userRepository.save(user);
+	}
+
+	// Add products to these users carts and cartItems
+	const john = await userRepository.findOne({where: {name: 'John'}});
+	const jane = await userRepository.findOne({where: {name: 'Jane'}});
+
+	if (john) {
+		console.log(`Adding cart to user ${john.name} to database...`);
+
+		const johnsCart = cartRepository.create();
+		johnsCart.user = john;
+		await cartRepository.save(johnsCart);
+
+		const techCoCloud = await productRepository.findOne({where: {prodName: 'TechCo Cloud'}});
+		const greenEcoSolar = await productRepository.findOne({where: {prodName: 'GreenEco Solar'}});
+
+		if (techCoCloud) {
+			const cartItem = cartItemRepository.create({
+				cart: johnsCart,
+				product: techCoCloud,
+				quantity: 1, // You can set the quantity as needed
+			});
+
+			await cartItemRepository.save(cartItem);
+		}
+		if (greenEcoSolar) {
+			const cartItem = cartItemRepository.create({
+				cart: johnsCart,
+				product: greenEcoSolar,
+				quantity: 3, // You can set the quantity as needed
+			});
+
+			await cartItemRepository.save(cartItem);
+		}
+	}
+
+	if (jane) {
+		console.log(`Adding cart to user ${jane.name} to database...`);
+		const janesCart = cartRepository.create();
+		janesCart.user = jane;
+		await cartRepository.save(janesCart);
+
+		const globalFoodDrinks = await productRepository.findOne({where: {prodName: 'GlobalFood Drinks'}});
+
+		if (globalFoodDrinks) {
+			const cartItem = cartItemRepository.create({
+				cart: janesCart,
+				product: globalFoodDrinks,
+				quantity: 3, // You can set the quantity as needed
+			});
+
+			await cartItemRepository.save(cartItem);
 		}
 	}
 
